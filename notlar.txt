@@ -1,0 +1,407 @@
+time.now = şuanki zaman
+irb
+a = 3
+a = "sa"
+değişken cağırmak için = "Şimdiki zaman #{zaman}" #{degisken_Adı}
+A.length = harf uzunluğu
+runyde değişkenler buyuk harfle baslayamaz
+.reverse = ters cevirir
+.capitalize = ilk harfi buyuk yapar
+upcase = metnin tamamını büyültür
+downcase = metnin tamamını küçültür
+.next = metnin son harfini bir harf sağa kaydırır
+.empty? = metnin içi boş mu dolu mu diye kontrol eder. true&false çıktısı verir
+"merhaba"+" "+"yakut" string birleştirme işlemi
+"merhaba"*10 ekrana 10 kere merhaba yazar
+\r = öncesini yok sayar mesela "merhaba \r yakut" yazınca ekrana sadece yakut yazdırır
+puts "ekrana yazdırır" fakat 1 satır ekler, print eklemez
+mesela ben ekrana \n yazdırmak istersem \\n yazacağım
+\t = 7 karakter boşluk bırakır
+# yorum satırı
+birden fazla satırlı yorum satırı kullanmak istersek kodlarımızı şöyle yazacağız =begin kodlar =end
+String === "abcd" 
+Fixnum === 123 
+#yukarıdaki sınıflar === ile kullanılır
+
+if kontrolü şu şekilde kullanılabilir: kodlar if isim=="furkan" #burada isim furkan ise kodlar çalışacaktır SAĞDAN SOLA OKUYOR
+
+şu şekilde de koşullar kullanılabilir:
+if isim=="furkan"
+isim furkan ise gerçekleştirilecek kodlar
+else
+değilse gerçekleştirilecek kodlar
+end #koşulun bittiğini belirtmek için
+
+elseif koşulu da kullanılabilir
+
+if koşulunun tersini gerçekleştiren koşul = unless
+puts "yaşınız 18'den küçük" unless yas>18
+
+gets.to_i = int veri alır
+
+yazi="ruby öğrenmeye başlayan furkan d"
+case yazi
+when /furkan/
+puts "yazi içinde furkan var"
+else
+puts "yok"
+end
+BU ŞEKİLDE YAZI İÇİNDE ARAMA İŞLEMLERİ YAPILABİLİR
+
+############################## DÖNGÜLER #######################################
+
+ÖNCELİKLE |num| ŞU DEMEK: ÖRNEĞİN BİZ DİĞER DİLLERDE i DEĞİŞKENİNİ ARTTIRIYORUZ YA BUNDA DA ARTTIRMAK İÇİN VEYA AZALTMAK İÇİN BU DEĞİŞKEN ÜZERİNDE ÇALIŞACAĞIZ DEYİP DEĞİŞKEN BELİRTİYORUZ. 
+
+!-DÖNGÜLER end İLE BİTER-! 
+
+[]-DOWNTO DÖNGÜSÜ-[]
+büyük sayıdan küçük sayıya doğru ilerleyen döngüdür.
+***
+puts "10 tane çıktı verecek"
+10.downto 1 do |num|
+puts num end
+puts "döngü bitti"
+***
+
+
+
+
+[]-UPTO DÖNGÜSÜ-[]
+küçük sayıdan büyük sayıya doğru ilerleyen döngüdür.
+***
+puts "10 tane çıktı verecek"
+1.upto 10 do |num|
+puts num end
+puts "döngü bitti"
+***
+
+
+
+
+[]-TIMES DÖNGÜSÜ-[]
+Belirlediğimiz sayıda çalışır. 
+***
+7.times {
+	puts "merhaba"
+}
+#ekrana 7 kere merhaba yazdırır
+***
+
+***
+5.times { |num|
+	puts "#{num}.kere merhaba"
+}
+#0'dan başlayarak 5 kere yazar
+***
+
+
+
+
+[]-STEP DÖNGÜSÜ-[]
+upto ve downto karışımı diyebiliriz. büyük sayı ve küçük sayıyı kendi algılar ve ona göre uygun olanı yazdırır. eğer soldaki sayı sağdakinden büyükse sayıları 5,4,3,2,1 diye, küçükse 1,2,3,4,5 diye sıralar artış-eksiliş değeri de belirtebiliriz
+***
+puts "4 tane çıktı verecek"
+1.step 10, 3 do |num|
+puts num end
+puts "döngü bitti"
+#1,4,7,10 çıktısını verir çünkü 3'er 3'er arttırdık
+***
+
+
+
+
+[]-WHILE DÖNGÜSÜ-[]
+belirtilen koşul sağlandığı sürece çalışmaya devam eder
+***
+a=1
+while a<=10 do
+print "#{a}, "
+a+=1
+end
+***
+
+
+
+
+[]-UNTIL DÖNGÜSÜ-[]
+belirtilen koşul sağlanana kadar çalışmaya devam eder. tek koşul üzerinden çalışır. while döngüsünün zıttı olarak nitelendirebiliriz
+***
+a=1
+until a>10 do
+print "#{a}, "
+a+=1
+end
+#yukarıdaki while döngüsü ile aynı çıktıyı verir
+***
+
+
+
+
+
+[]-BREAK DÖNGÜSÜ-[]
+döngüyü sonlandırmak için kullanılan koşuldur. ruby resmi kaynaklarında döngü olarak geçer
+***
+a=1
+until a>10 do
+print "#{a}, "
+a+=1
+break if a==6
+end
+#1, 2, 3, 4, 5, çıktısını verir. a değeri 6 olunca döngü duracağı için devam etmez
+***
+
+
+
+
+[]-NEXT DÖNGÜSÜ-[]
+döngüde pas geçmek için kullanılır
+***
+5.times do |num|
+	next if num==3
+	print num
+end
+#0124 çıktısını verir. 3 değerini atla dediğimiz için pas geçti.
+***
+
+
+
+
+[]-LOOP DÖNGÜSÜ-[]
+sonsuz döngüdür. koşul olmadan çalışır. yanlışlıkla açarsanız ctrl c yapın. break ile durdurulabilir.
+***
+loop do
+puts "merhabalar"
+end
+#ekrana sonsuza kadar merhabalar yazar
+***
+
+***
+a=1
+loop do
+puts a
+break if a == 10
+a+=1
+end
+#a değeri 10 olunca döngüyü durdurur.
+***
+
+###############################################################################
+
+
+hash oluşturmak:
+{anahtar: "içerik", anahtar2: "içerik2"}
+hashları değişkene aktarmak için: a={bir:"birr"}
+hashları çağırmak: a[:bir]
+
+hash eşitlik kontolü için:
+hash_bir == hash_iki
+veya
+hash_bir.eql?(hash_iki)
+
+eğer ki hash içerisinde böyle bir anahtar yoksa hata mesajı verdirmek için:
+a.fetch(:hash_ismi,"hata mesajı")
+
+hashlara store ile ekleme yapmak için:
+hash_adi.store(:anahtar_adi,"anahtar degeri")
+
+olmayan anahtarlar için karşımıza ne çıkmasını istiyorsak onu default ile belirliyoruz
+hash_ismi.default="bos veri"
+veya da
+hashlar = Hash.new(0) #burada yeni bir hash oluşturduk. eğer ki hashimizi sorguladığımızda değerimiz boş ise bize 0 değerini döndürecek.
+
+eğer ki içerik aratarak anahtar sorgulamak istersek;
+hash.key("icerik") #yazınca ekrana anahtar adı gelecektir
+
+hash içinde kaç eleman olduğunu öğrenme:
+hash.count veya hash.size veya hash.length
+
+hash içinde anahtarları listelemek için
+hash.key
+
+hash içinde değerleri listelemek için
+hash.value
+
+hash.values_at(:anahtarbir, :anahtar2) yaparsak anahtar1 ve anahtar2'nin değerlerini karşımıza getirir.
+
+hash.key?(:anahtar2) #eğer anahtar2 mevcutsa true, değilse false döndürür
+aynı işlem .has_key? ile de gerçekleştirilebilir. hash.hash_key?(:anahtar2)
+
+hashbir.value?("içerik2") #içerik2 adlı içeriği arar eğer varsa true, yoksa false değeri döndürür
+aynı işlem has_value? ile de gerçekleştirilebilir
+
+hash_Adi.empty? eğer hash içi boşsa true, değilse false gerçekleştirir
+
+hash.shift #ilk anahtar ve içeriğini siler
+
+hashadi.delete(:anahtar) #belirtilen anahtarı siler
+
+
+koşullu silme için: (koşula uyanları siler)
+hash_adi.delete_if( |a,b| b>koşul )
+a.delete_if( |x,y| y>150 ) #örneğin burada anahtar içeriklerini kontrol eder ve 150'den büyük olanları siler
+
+koşullu olarak tutma için: (koşula uyanları silmez)
+hash.keep_if( |a,b b<koşul )
+
+hash_Adi.invert #hash içindeki anahtarlar ile içeriklerinin görüntülenmesini ters çevirir örneğin:
+önce -> yas = {furkan:17, a:18}
+yas.invert
+yeni içerik -> {17=>:furkan,18=>a}
+
+hash_bir.merge(hash_iki) #iki hash'ı birleştirir istersen merge yerine .update() de kullanabilirsin veya da .merge!()
+
+hash_bir.replace(hash_iki) veya da hash_bir.replace({anahtar:icerik,anahtar2:icerik2}) #içerik değişimi için kullanılır
+
+hash referans numarası almak için hashismi.__id__ yazmak gerekir. ekrana çıktı olarak verecektir
+
+array belirtmek için = (ilknokta..sonnokta) eğer sonnoktayı dahil etmek istemezsek .. yerine ... kullanırız. bu işlemde stringleri de kullanabiliriz
+
+bir nesnenin sınıfını öğrenmek için .class kullanabiliriz örneğin hashbir.class gibi
+
+.to_a yazarak arrayları yazdırabiliriz. string olarak yazdırmak için .join ekleyebiliriz. .to_a.join gibi
+
+yazi = ("yv".."zd")
+yazi.to_a SONUCU AŞAĞIDA
+["yv", "yw", "yx", "yy", "yz", "za", "zb", "zc", "zd"]
+
+a.begin yaparak arrayın ilk elemanını öğrenebiliriz
+a.first(3) yaparak ilk 3 elemanını öğrenebiliriz
+
+a.cover?(10) a arrayı içinde 10 varsa true, yoksa false döndürür
+
+a.include?("cde") ile a.cover?("cde") farkı şudur: coverde c,d,e varsa true döndürür ama include de cde bütünü varsa true döndürür yoksa false. .member? de include? ile aynı işlemi görür
+
+aralığın son hanesini almak için a.end
+aralığın son 4 hanesini almak için a.last(4)
+
+a.min = a arrayının en küçük elemanı
+a.max = a arrayının en büyük elemanı
+a.size = a arrayının eleman sayısı
+
+a.step(2)_to.a yaparsak 2'şer 2'şer atlayarak ekrana yazdırır örneğin a = (10..20) ise [10, 12, 14, 16, 18, 20] yazdırır
+
+
+fonksiyon belirtmek:
+def fonksiyonismi
+komutlar
+end
+
+fonksiyona parametre atamak:
+def fonksiyon(parametre)
+
+
+fonksiyonları öldürmek için (bu kodda belirtilen fonksiyonun altındaki fonksiyon çağırma kodları geçersiz olur) >>> undef fonksiyon ismi
+
+fonksiyonlara varsayılan değer atamak: def fonksiyon (isim="furkand") #isim parametresinin varsayılan değeri furkand oldu
+
+def fonsiyon anahtar1:"deger1", anahtar2:"deger2"
+puts #{anahtar1} #{anahtar2} 
+end
+#yukarıdaki gibi anahtarlı argüman belirtebiliriz
+
+def selamla isim:"furkand", yas:17
+puts "merhaba #{isim}, senin yaşın #{yas}"
+end
+selamla isim:"mehmet", yas:18
+selamla
+#anahtar kelimeli argüman belirttik. ekrana gelecek çıktı:
+merhaba furkand, senin yaşın 17
+merhaba mehmet, senin yaşın 18
+
+#değişken içerikli argümanlar:
+def fonksiyon (*parametre)
+"#{parametre.join(" ayırıcı ")}"
+end
+#yukarıda görüldüğü gibi parametre başına * eklenerek çoğulluk özelliği kazandırır. bu parametreye birden fazla değişen atayabiliriz. alttaki örnekte modeller değişkenine 2 tane değer atadık ve bu iki değeri yazdırmak için araya ---- getirmesini söyledik ve kodumuz çalıştı.
+
+
+def arabalar(*modeller)
+"galerideki arabalar: #{modeller.join("----")}"
+end
+puts otomobiller("rexa v1s", "rexa v1e")
+#ekrana gelecek çıktı: rexa v1s ---- rexa v1e 
+
+$  --> global değişken
+@ --> instance değişken
+a..z ya da ... --> yerel değişken
+A..Z --> constant değişken
+@@ --> sınıf değişken
+
+
+x e kadar random değer atamak için = rand(x)
+
+global değişkenler, tüm fonksiyonlar üzerinden değişkene ulaşabilmemizi sağlar. $a diye belirtilen bir a değişkeni globaldir.
+
+instance değişkenler bir fonksiyon içinde tanımlanan değişkenin başka bir fonksiyon içinde de çağırılmasını sağlar
+
+constant değişkenler, içeriği değiştirilemeyen değişkenlerdir. büyük harfle başlayan değişkenlerdir
+
+sınıf değişkenleri, sınıflar arası işlemler için kullanılan değişken türüdür.
+
+SINIFLAR
+class Sınıf_ismi
+def fonksiyon
+icerik
+end
+end
+#sınıf isimleri büyük başlamak zorundadır
+
+degisken_ismi = sinif_ismi.new
+
+attr_accessor: atadığımız değişkenin hem okunup hem yazılmasını sağlar
+
+gizli fonksiyonlar:
+bazı fonksiyonların son kullanıcı tarafından çağırılmamasını isteyebiliriz veya da örneğin kullanıcı bilgilerini tuttuğumuz bir fonksiyonda email bilgisini gizlemek isteyebiliriz bu gibi durumlarda bu fonksiyonu kullanacağız.
+class Sınıf
+	private
+	def fonksiyon_adi
+		içerik
+	end 
+end
+
+#MİRAS ATAMA
+class Sınıf < Kapsayan_sinif #Kapsayan_sinif, Sınıf'tan daha büyüktür
+def fonksiyon
+	içerik
+end
+end
+#art arda oluşturduğumuz sınıflarda ortaklık istiyorsak miras atamayı kullanırız
+
+programımızı kod parçalarına bölmek istersek alttaki gibi diğer ruby programlarını çağırabiliriz
+require "./dosya_ismi.rb"
+
+#modül belirtmek
+module Modul_ismi
+	icerik
+end
+
+modüller, sınıfların üst kapsayıcısı gibidir. içerisine fonksiyon tanımlanabilir. modüllerde gizli öğe tanımlanmaz, tanımların hepsi açık verilerdir.
+
+modül çağırmanın 2 yolu vardır:
+inclue Modul_ismi
+fonksiyon
+
+diğer yöntem ise:
+Modul_ismi::fonksiyon_ismi
+Modul_ismi::sınıf_ismi.new
+
+modul içerisine fonksiyon tanımlamak:
+module Modul_ismi
+	fonksiyon_ismi
+		içerik
+	end
+end
+
+#mixinler
+mixinler, sınıflar içerisinde çağırılabilir. nesne programlamadaki miraslara benzer
+module Modul
+	modul_sabiti 
+end 
+class Sınıf
+include Modul
+def fonksiyon
+	modul_sabiti
+end
+end
+
+
